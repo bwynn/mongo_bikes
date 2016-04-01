@@ -11,7 +11,8 @@ var BikeSchema = new Schema({
   },
   travel: Number,
   fs: Boolean,
-  wh_size: String
+  wh_size: String,
+  bike_id: String
 });
 
 module.exports = mongoose.model("Bike", BikeSchema);
