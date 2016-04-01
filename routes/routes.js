@@ -1,9 +1,9 @@
 // packages
 var path = require('path');
-var Bike = require('./models/bike');
+var Bike = require('../models/bike');
 
 module.exports = function(app) {
-  var bikeCtrl = require('./controllers/bike_controller');
+  var bikeCtrl = require('../controllers/bike_controller');
 
 // BIKE ROUTES
 // =============================================================================
