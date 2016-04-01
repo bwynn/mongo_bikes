@@ -19,6 +19,14 @@ angular.module('AdminController', [])
       });
     };
 
+    $scope.deleteBike = function(unique_id) {
+      admin.removeBike({
+        id: unique_id
+      }).then(function() {
+        init();
+      })
+    }
+
     // get data from db and initialize controller
     function init() {
       admin.getBikes().then(function(bikes) {

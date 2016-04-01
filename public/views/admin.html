@@ -1,5 +1,6 @@
 <div class="well well-lg">
   <form novalidate>
+    <h2>Add a new bike</h2>
     <div class="form-group">
       <label>Brand</label>
       <input type="text" class="form-control" ng-model="brand" required>
@@ -29,29 +30,34 @@
       <input type="text" class="form-control" ng-model="wh_base" required>
     </div>
     <div class="form-group">
-      <label class="checkbox-inline">Full Suspension?</label>
       <input type="checkbox" ng-model="fs" required>
+      <label class="checkbox-inline"><strong>Full Suspension?</strong></label>
     </div>
     <button class="btn btn-primary" ng-click="submit()">Submit</button>
   </form>
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-body">
-    <div ng-repeat="bike in bikes">
-      <h1>bike {{$index + 1}}</h1>
+    <div ng-repeat="bike in bikes" class="panel-body">
       <h3><strong>brand:</strong> {{bike.brand}}</h3>
       <h3><strong>model:</strong> {{bike.model}}</h3>
       <h3><strong>year:</strong> {{bike.year}}</h3>
-      <p><strong>wheel size:</strong> {{bike.wh_size}}</p>
-      <p><strong>_id:</strong> {{bike._id}}</p>
-      <p><strong>bike id:</strong> {{bike.bike_id}}</p>
-      <p><strong>fs:</strong> {{bike.fs}}</p>
-      <p><strong>travel:</strong> {{bike.travel}}mm</p>
-      <p><strong>head tube angle:</strong> {{bike.geo.ht_ang}}deg</p>
-      <p><strong>wheel base:</strong> {{bike.geo.wh_base}}</p>
+      <div class="form-group">
+        <input type="checkbox" ng-model="details"/>
+        <label class="checkbox-inline">Show Details</label>
+      </div>
+      <div ng-hide="!details">
+        <p><strong>wheel size:</strong> {{bike.wh_size}}</p>
+        <p><strong>_id:</strong> {{bike._id}}</p>
+        <p><strong>bike id:</strong> {{bike.bike_id}}</p>
+        <p><strong>fs:</strong> {{bike.fs}}</p>
+        <p><strong>travel:</strong> {{bike.travel}}mm</p>
+        <p><strong>head tube angle:</strong> {{bike.geo.ht_ang}}deg</p>
+        <p><strong>wheel base:</strong> {{bike.geo.wh_base}}</p>
+        <button class="btn btn-danger" ng-click="deleteBike(bike._id)">Delete Bike</button>
+        <button class="btn btn-success">Update Bike</button>
+      </div>
     </div>
-  </div>
 </div>
 
 <div>New Bike Id Should be: {{newBikeId}}</div>
