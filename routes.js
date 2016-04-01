@@ -5,6 +5,8 @@ var Bike = require('./models/bike');
 module.exports = function(app) {
   var bikeCtrl = require('./controllers/bike_controller');
 
+// BIKE ROUTES
+// =============================================================================
   // get all bikes
   app.get('/bikes', bikeCtrl.getBikes);
 
@@ -16,4 +18,11 @@ module.exports = function(app) {
 
   // delete a bike
   app.delete('/delete-bike', bikeCtrl.removeBike);
-};
+
+// FRONT END ROUTES
+// =============================================================================
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+  });
+
+}; // end exports
