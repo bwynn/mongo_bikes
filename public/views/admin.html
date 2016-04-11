@@ -48,9 +48,9 @@
       <div class="panel panel-body">
         <img ng-src="{{bike.bike_img.url}}" class="thumb"/>
       </div>
-      <h3><strong>brand:</strong> {{bike.brand}}</h3>
-      <h3><strong>model:</strong> {{bike.model}}</h3>
-      <h3><strong>year:</strong> {{bike.year}}</h3>
+      <h3><small>model:</small> {{bike.model}}</h3>
+      <h3><small>brand:</small> {{bike.brand}}</h3>
+      <h3><small>year:</small> {{bike.year}}</h3>
       <div class="form-group">
         <input type="checkbox" ng-model="details"/>
         <label class="checkbox-inline">Show Details</label>
@@ -64,8 +64,44 @@
         <p><strong>head tube angle:</strong> {{bike.geo.ht_ang}}deg</p>
         <p><strong>wheel base:</strong> {{bike.geo.wh_base}}</p>
         <button class="btn btn-danger" ng-click="deleteBike(bike._id)">Delete Bike</button>
-        <button class="btn btn-success">Update Bike</button>
+        <button class="btn btn-success" ng-click="showUpdateForm()">Update Bike</button>
       </div>
+      <form class="form modal-update" ng-show="updateForm" novalidate>
+        <div class="form-group">
+          <label>Brand</label>
+          <input type="text" class="form-control" ng-model="bike.brand" required>
+        </div>
+        <div class="form-group">
+          <label>Model</label>
+          <input type="text" class="form-control" ng-model="bike.model" required>
+        </div>
+        <div class="form-group">
+          <label>Year</label>
+          <input type="text" class="form-control" ng-model="bike.year" required>
+        </div>
+        <div class="form-group">
+          <label>Wheel Size</label>
+          <input type="text" class="form-control" ng-model="bike.wh_size" required>
+        </div>
+        <div class="form-group">
+          <label>Travel</label>
+          <input type="text" class="form-control" ng-model="bike.travel" required>
+        </div>
+        <div class="form-group">
+          <label>Head Tube Angle</label>
+          <input type="text" class="form-control" ng-model="bike.geo.ht_ang" required>
+        </div>
+        <div class="form-group">
+          <label>Wheel Base</label>
+          <input type="text" class="form-control" ng-model="bike.geo.wh_base" required>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" ng-model="bike.fs" required>
+          <label class="checkbox-inline"><strong>Full Suspension?</strong></label>
+        </div>
+        <button class="btn btn-success" ng-click="updateBike(bike._id)">Save Changes</button>
+        <button class="btn btn-danger" ng-click="showUpdateForm()">Cancel</button>
+      </form>
     </div>
 </div>
 

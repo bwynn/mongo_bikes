@@ -4,11 +4,18 @@
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap; }
   .bike-details .bike-detail {
-    width: 20%;
+    width: 22%;
     margin: 1em; }
-    .bike-details .bike-detail .thumb {
-      width: 90%;
-      margin: 0 auto;
-      height: auto; }
+    @media only screen and (max-width: 949px) {
+      .bike-details .bike-detail {
+        width: 45%; } }
+    @media only screen and (max-width: 767px) {
+      .bike-details .bike-detail {
+        width: 100%; } }
+
+.thumb {
+  width: 90%;
+  margin: 0 auto;
+  height: auto; }
 
 /*# sourceMappingURL=main.css.map */

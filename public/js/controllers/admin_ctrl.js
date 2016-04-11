@@ -5,6 +5,9 @@ angular.module('AdminController', [])
 
     // new bike submission
     $scope.submit = function() {
+      if ($scope.newBikeId === null || $scope.newBikeId === undefined) {
+        $scope.newBikeId = 1;
+      }
       admin.addBike({
         bike_id: $scope.newBikeId,
         brand: $scope.brand,
@@ -21,6 +24,24 @@ angular.module('AdminController', [])
         init();
       });
     };
+
+    // update a bike
+    $scope.updateBike = function(unique_id) {
+      admin.updateBike({
+        id: unique_id,
+        brand: this.bike.brand,
+        model: this.bike.model,
+        year: this.bike.year,
+        bike_id: this.bike.bike_id,
+        ht_ang: this.bike.geo.ht_ang,
+        wh_base: this.bike.geo.wh_base,
+        fs: this.bike.fs,
+        wh_size: this.bike.wh_size,
+        travel: this.bike.travel
+      }).then(function() {
+        init();
+      });
+    }
 
     // remove bike
     $scope.deleteBike = function(unique_id) {
@@ -47,11 +68,22 @@ angular.module('AdminController', [])
       });
     };
 
+    // toggles several values to show/hide individual bike forms/details
+    $scope.showUpdateForm = function() {
+      if (!this.updateForm) {
+        this.updateForm = true; // show the update form
+        this.details = false; // hide the details
+      }
+      else {
+        this.updateForm = false; // hide the update form if user clicks cancel btn
+        this.details = true; // go back to the details view for that bike
+      }
+    };
+
     // get data from db and initialize controller
     function init() {
       admin.getBikes().then(function(bikes) {
         $scope.bikes = bikes.data;
-
         console.log(bikes.data);
       }).then(function() {
         setId();
@@ -65,12 +97,20 @@ angular.module('AdminController', [])
       for (var i = 0; i < $scope.bikes.length; i++) {
         $scope.bike_ids.push($scope.bikes[i].bike_id);
       }
-      // define new bike id value
-      $scope.newBikeId = Math.max.apply(Math, $scope.bike_ids) + 1;
+      if ($scope.bike_ids.length < 1) {
+        console.log("length: " + $scope.bike_ids.length);
+        $scope.newBikeId = 1;
+      }
+      else {
+        console.log($scope.bike_ids);
+        // define new bike id value
+        $scope.newBikeId = Math.max.apply(Math, $scope.bike_ids) + 1;
+      }
     }
 
     // set default values
     function defaultVars() {
+      $scope.updateForm = false;
       $scope.brand = "";
       $scope.model = "";
       $scope.year = "";

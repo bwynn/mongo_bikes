@@ -38,20 +38,21 @@ exports.newBike = function(req, res) {
 
 // udpate an existing bike record
 exports.updateBike = function(req, res) {
+  console.log(req.body);
   Bike.findOne({"_id": req.body.id}, function(err, bike) {
     Bike.update({'bike_id': req.body.bike_id}, {
-      "model": req.body.model,
-      "brand": req.body.brand,
-      "year": req.body.year,
+      model: req.body.model,
+      brand: req.body.brand,
+      year: req.body.year,
       "geo.ht_ang": req.body.ht_ang,
       "geo.wh_base": req.body.wh_base,
-      "travel": req.body.travel,
-      "fs": req.body.fs,
-      "wh_size": req.body.wh_size,
-      "bike_img": req.body.bike_img,
+      travel: req.body.travel,
+      fs: req.body.fs,
+      wh_size: req.body.wh_size,
+      travel: req.body.travel
     }, function(err, bike) {
       if (err) {
-        res.send(err);
+        return res.send(err);
       }
 
       res.json(bike);
