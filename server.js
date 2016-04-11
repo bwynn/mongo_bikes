@@ -10,7 +10,26 @@ var app = express();
 // =============================================================================
 var db = require('./config/db');
 var port = process.env.PORT || 8080;
-mongoose.connect(db.db);
+// set server options
+var options = {
+  server: {
+    socketOptions: {
+      keepAlive: 1,
+      connectTimeoutMS: 30000
+    }
+  },
+  replset: {
+    socketOptions: {
+      keepAlive: 1,
+      connectTimeoutMS: 30000
+    }
+  }
+};
+
+mongoose.connect(db.db, options);
+
+var newConnection = mongoose.connection;
+newConnection.on('error', console.error.bind(console, 'connection error:'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

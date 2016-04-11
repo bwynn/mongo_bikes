@@ -1,8 +1,9 @@
 // public/js/controllers/admin_ctrl.js
 
 angular.module('AdminController', [])
-  .controller('adminCtrl', ['$scope', 'admin', function($scope, admin) {
+  .controller('adminCtrl', ['$scope', 'admin', 'filepickerService', function($scope, admin, filepickerService) {
 
+    // new bike submission
     $scope.submit = function() {
       admin.addBike({
         bike_id: $scope.newBikeId,
@@ -13,19 +14,37 @@ angular.module('AdminController', [])
         ht_ang: $scope.ht_ang,
         wh_base: $scope.wh_base,
         fs: $scope.fs,
-        wh_size: $scope.wh_size
+        wh_size: $scope.wh_size,
+        bike_img: $scope.bikeImage,
+
       }).then(function() {
         init();
       });
     };
 
+    // remove bike
     $scope.deleteBike = function(unique_id) {
       admin.removeBike({
         id: unique_id
       }).then(function() {
         init();
       })
-    }
+    };
+
+    // upload picture of the bike using filepicker
+    $scope.upload = function() {
+      filepickerService.pick({
+        mimetype: 'image/*',
+        language: 'en',
+        services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH'],
+        openTo: 'IMAGE_SEARCH'
+      },
+      function(Blob) {
+        console.log(JSON.stringify(Blob));
+        $scope.bikeImage = Blob;
+        $scope.$apply();
+      });
+    };
 
     // get data from db and initialize controller
     function init() {
@@ -54,6 +73,7 @@ angular.module('AdminController', [])
       $scope.wh_base = "";
       $scope.fs = false;
       $scope.wh_size = "";
+      $scope.bikeImage = {};
     }
 
     init();

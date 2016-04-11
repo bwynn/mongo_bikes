@@ -12,7 +12,8 @@ var BikeSchema = new Schema({
   travel: Number,
   fs: Boolean,
   wh_size: String,
-  bike_id: String
+  bike_id: String,
+  bike_img: {type: Schema.Types.Mixed, required: true}
 });
 
 module.exports = mongoose.model("Bike", BikeSchema);

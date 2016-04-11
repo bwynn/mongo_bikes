@@ -25,6 +25,7 @@ exports.newBike = function(req, res) {
   bike.fs = req.body.fs;
   bike.wh_size = req.body.wh_size;
   bike.bike_id = req.body.bike_id;
+  bike.bike_img = req.body.bike_img;
 
   bike.save(function(err, bike) {
     if (err) {
@@ -46,7 +47,8 @@ exports.updateBike = function(req, res) {
       "geo.wh_base": req.body.wh_base,
       "travel": req.body.travel,
       "fs": req.body.fs,
-      "wh_size": req.body.wh_size
+      "wh_size": req.body.wh_size,
+      "bike_img": req.body.bike_img,
     }, function(err, bike) {
       if (err) {
         res.send(err);

@@ -33,6 +33,12 @@
       <input type="checkbox" ng-model="fs" required>
       <label class="checkbox-inline"><strong>Full Suspension?</strong></label>
     </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-default" ng-click="upload()">Upload</button>
+      <div class="panel" ng-if="bikeImage.url">
+        <img ng-src="{{bikeImage.url}}" class="thumb">
+      </div>
+    </div>
     <button class="btn btn-primary" ng-click="submit()">Submit</button>
   </form>
 </div>
@@ -54,6 +60,9 @@
         <p><strong>travel:</strong> {{bike.travel}}mm</p>
         <p><strong>head tube angle:</strong> {{bike.geo.ht_ang}}deg</p>
         <p><strong>wheel base:</strong> {{bike.geo.wh_base}}</p>
+        <div class="panel panel-body">
+          <img ng-src="{{bike.bike_img.url}}" class="thumb"/>
+        </div>
         <button class="btn btn-danger" ng-click="deleteBike(bike._id)">Delete Bike</button>
         <button class="btn btn-success">Update Bike</button>
       </div>
