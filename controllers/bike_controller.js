@@ -61,6 +61,7 @@ exports.updateBike = function(req, res) {
 
 // remove a bike
 exports.removeBike = function(req, res) {
+  console.log(req.body);
   Bike.remove({"_id": req.body.id}, function(err, bike) {
     if (err) {
       res.send(err);

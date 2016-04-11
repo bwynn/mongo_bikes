@@ -24,8 +24,9 @@ angular.module('AdminController', [])
 
     // remove bike
     $scope.deleteBike = function(unique_id) {
+      console.log(unique_id);
       admin.removeBike({
-        id: unique_id
+        "id": unique_id
       }).then(function() {
         init();
       })
@@ -53,14 +54,19 @@ angular.module('AdminController', [])
 
         console.log(bikes.data);
       }).then(function() {
-        $scope.bike_ids = [];
-        for (var i = 0; i < $scope.bikes.length; i++) {
-          $scope.bike_ids.push($scope.bikes[i].bike_id);
-        }
-        // define new bike id value
-        $scope.newBikeId = Math.max.apply(Math, $scope.bike_ids) + 1;
+        setId();
         defaultVars(); // set and clear out any values expected to be empty on forms.
       });
+    }
+
+    // this takes the largest bike_id value found in the bikes collection and increments += 1
+    function setId() {
+      $scope.bike_ids = [];
+      for (var i = 0; i < $scope.bikes.length; i++) {
+        $scope.bike_ids.push($scope.bikes[i].bike_id);
+      }
+      // define new bike id value
+      $scope.newBikeId = Math.max.apply(Math, $scope.bike_ids) + 1;
     }
 
     // set default values

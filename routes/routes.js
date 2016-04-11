@@ -17,7 +17,7 @@ module.exports = function(app) {
   app.put('/update-bike', bikeCtrl.updateBike);
 
   // delete a bike
-  app.delete('/delete-bike', bikeCtrl.removeBike);
+  app.put('/delete-bike', bikeCtrl.removeBike);
 
 // FRONT END ROUTES
 // =============================================================================

@@ -1,5 +1,14 @@
-.thumb {
-  height: 200px;
-  width: auto; }
+.bike-details {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap; }
+  .bike-details .bike-detail {
+    width: 20%;
+    margin: 1em; }
+    .bike-details .bike-detail .thumb {
+      width: 90%;
+      margin: 0 auto;
+      height: auto; }
 
 /*# sourceMappingURL=main.css.map */

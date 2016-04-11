@@ -43,8 +43,11 @@
   </form>
 </div>
 
-<div class="panel panel-default">
-    <div ng-repeat="bike in bikes" class="panel-body">
+<div class="panel panel-default bike-details">
+    <div ng-repeat="bike in bikes" class="panel-body bike-detail">
+      <div class="panel panel-body">
+        <img ng-src="{{bike.bike_img.url}}" class="thumb"/>
+      </div>
       <h3><strong>brand:</strong> {{bike.brand}}</h3>
       <h3><strong>model:</strong> {{bike.model}}</h3>
       <h3><strong>year:</strong> {{bike.year}}</h3>
@@ -60,9 +63,6 @@
         <p><strong>travel:</strong> {{bike.travel}}mm</p>
         <p><strong>head tube angle:</strong> {{bike.geo.ht_ang}}deg</p>
         <p><strong>wheel base:</strong> {{bike.geo.wh_base}}</p>
-        <div class="panel panel-body">
-          <img ng-src="{{bike.bike_img.url}}" class="thumb"/>
-        </div>
         <button class="btn btn-danger" ng-click="deleteBike(bike._id)">Delete Bike</button>
         <button class="btn btn-success">Update Bike</button>
       </div>

@@ -13,11 +13,11 @@ angular.module('AdminService', [])
       },
       // update bike
       updateBike: function(data) {
-        return $http.update('/update-bike', data);
+        return $http.put('/update-bike', data);
       },
       // delete bike
       removeBike: function(data) {
-        return $http.delete('/delete-bike', data);
+        return $http.put('/delete-bike', data);
       }
     };
   }]);
