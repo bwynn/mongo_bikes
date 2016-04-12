@@ -14,6 +14,10 @@ angular.module('AppRoutes', [])
         templateUrl: 'views/admin.html',
         controller: 'adminCtrl'
       }).
+      when('/admin/:id', {
+        templateUrl: 'views/admin_bike.html',
+        controller: 'adminBikeCtrl'
+      }).
       otherwise({
         redirectTo: '/admin',
         controller: 'adminCtrl'

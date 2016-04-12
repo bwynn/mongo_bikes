@@ -45,12 +45,13 @@
 
 <div class="panel panel-default bike-details">
     <div ng-repeat="bike in bikes" class="panel-body bike-detail">
+      <a ng-href="/admin/{{bike._id}}">
       <div class="panel panel-body">
         <img ng-src="{{bike.bike_img.url}}" class="thumb"/>
       </div>
       <h3><small>model:</small> {{bike.model}}</h3>
       <h3><small>brand:</small> {{bike.brand}}</h3>
-      <h3><small>year:</small> {{bike.year}}</h3>
+      <h3><small>year:</small> {{bike.year}}</h3></a>
       <div class="form-group">
         <input type="checkbox" ng-model="details"/>
         <label class="checkbox-inline">Show Details</label>

@@ -12,6 +12,17 @@ exports.getBikes = function(req, res) {
   });
 };
 
+exports.getBike = function(req, res) {
+  console.log(req.params);
+  Bike.findOne({"_id": req.params.id}, function(err, bike) {
+    if (err) {
+      return res.send(err);
+    }
+
+    res.json(bike);
+  });
+};
+
 // add a new bike
 exports.newBike = function(req, res) {
   var bike = new Bike();

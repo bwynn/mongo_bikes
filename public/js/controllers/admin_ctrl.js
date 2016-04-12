@@ -26,6 +26,9 @@ angular.module('AdminController', [])
     };
 
     // update a bike
+    // currently this update function does not allow for modifying the image
+    // perhaps this feature/function would be better suited for an individual page for updating all properties on
+    // each individual bike
     $scope.updateBike = function(unique_id) {
       admin.updateBike({
         id: unique_id,

@@ -18,6 +18,9 @@ angular.module('AdminService', [])
       // delete bike
       removeBike: function(data) {
         return $http.put('/delete-bike', data);
+      },
+      getBike: function() {
+        return $http.get('/admin/:id');
       }
     };
   }]);

@@ -19,6 +19,9 @@ module.exports = function(app) {
   // delete a bike
   app.put('/delete-bike', bikeCtrl.removeBike);
 
+  // get individual bike
+  app.get('/admin/:id', bikeCtrl.getBike);
+
 // FRONT END ROUTES
 // =============================================================================
   app.get('*', function(req, res) {
