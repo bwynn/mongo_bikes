@@ -15,7 +15,7 @@ angular.module('AppRoutes', [])
         controller: 'adminCtrl'
       }).
       when('/admin/:id', {
-        templateUrl: 'views/admin_bike.html',
+        templateUrl: '/views/admin_bike.html',
         controller: 'adminBikeCtrl'
       }).
       otherwise({

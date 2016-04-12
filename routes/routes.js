@@ -20,7 +20,7 @@ module.exports = function(app) {
   app.put('/delete-bike', bikeCtrl.removeBike);
 
   // get individual bike
-  app.get('/admin/:id', bikeCtrl.getBike);
+  app.get('/bikes/:id', bikeCtrl.getBike);
 
 // FRONT END ROUTES
 // =============================================================================

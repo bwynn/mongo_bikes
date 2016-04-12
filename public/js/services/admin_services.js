@@ -20,7 +20,7 @@ angular.module('AdminService', [])
         return $http.put('/delete-bike', data);
       },
       getBike: function() {
-        return $http.get('/admin/:id');
+        return $http.get('/bikes/:id');
       }
     };
   }]);

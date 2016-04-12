@@ -13,8 +13,8 @@ exports.getBikes = function(req, res) {
 };
 
 exports.getBike = function(req, res) {
-  console.log(req.params);
-  Bike.findOne({"_id": req.params.id}, function(err, bike) {
+  console.log("req.params.id = " + req.params.id);
+  Bike.findById(req.params.id, function(err, bike) {
     if (err) {
       return res.send(err);
     }
