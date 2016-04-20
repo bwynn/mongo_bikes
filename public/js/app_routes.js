@@ -18,8 +18,16 @@ angular.module('AppRoutes', [])
         templateUrl: '/views/admin_bike.html',
         controller: 'adminBikeCtrl'
       }).
+      when('/', {
+        templateUrl: 'views/questionForm.html',
+        controller: 'formCtrl'
+      }).
+      when('/results', {
+        templateUrl: 'views/results.html',
+        controller: 'resultsCtrl'
+      }).
       otherwise({
-        redirectTo: '/admin',
+        redirectTo: '/',
         controller: 'adminCtrl'
       });
   }]);

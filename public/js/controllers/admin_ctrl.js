@@ -25,6 +25,15 @@ angular.module('AdminController', [])
       });
     };
 
+    $scope.toggleNewBike = function() {
+      if (!$scope.show_form) {
+        $scope.show_form = true;
+      }
+      else {
+        $scope.show_form = false;
+      }
+    };
+
     // update a bike
     // currently this update function does not allow for modifying the image
     // perhaps this feature/function would be better suited for an individual page for updating all properties on
@@ -48,7 +57,7 @@ angular.module('AdminController', [])
 
     // remove bike
     $scope.deleteBike = function(unique_id) {
-      console.log(unique_id);
+      //console.log(unique_id);
       admin.removeBike({
         "id": unique_id
       }).then(function() {
@@ -65,7 +74,7 @@ angular.module('AdminController', [])
         openTo: 'IMAGE_SEARCH'
       },
       function(Blob) {
-        console.log(JSON.stringify(Blob));
+        //console.log(JSON.stringify(Blob));
         $scope.bikeImage = Blob;
         $scope.$apply();
       });
@@ -87,7 +96,7 @@ angular.module('AdminController', [])
     function init() {
       admin.getBikes().then(function(bikes) {
         $scope.bikes = bikes.data;
-        console.log(bikes.data);
+        //console.log(bikes.data);
       }).then(function() {
         setId();
         defaultVars(); // set and clear out any values expected to be empty on forms.
@@ -101,11 +110,11 @@ angular.module('AdminController', [])
         $scope.bike_ids.push($scope.bikes[i].bike_id);
       }
       if ($scope.bike_ids.length < 1) {
-        console.log("length: " + $scope.bike_ids.length);
+        //console.log("length: " + $scope.bike_ids.length);
         $scope.newBikeId = 1;
       }
       else {
-        console.log($scope.bike_ids);
+        //console.log($scope.bike_ids);
         // define new bike id value
         $scope.newBikeId = Math.max.apply(Math, $scope.bike_ids) + 1;
       }

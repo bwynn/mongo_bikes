@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="bikeApp">
 <head>
-  <title>Bike Query MEAN</title>
+  <title>Find Your Bike</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
+  <a href="/admin">Admin</a></br>
+  <a href="/">Questionaire</a>
 
   <div ng-view></div>
 
@@ -24,6 +26,9 @@
   <!-- controllers -->
   <script src="js/controllers/admin_ctrl.js"></script>
   <script src="js/controllers/admin_bike_ctrl.js"></script>
+  <script src="js/controllers/form_ctrl.js"></script>
+  <script src="js/controllers/main_ctrl.js"></script>
+  <script src="js/controllers/results_ctrl.js"></script>
   <!-- services/factories -->
   <script src="js/services/admin_services.js"></script>
   <!-- routes -->
