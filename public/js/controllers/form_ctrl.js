@@ -15,6 +15,15 @@ angular.module('FormController', [])
     // set default value for question picker
     $scope.question = 1;
 
+    // set travel value
+    $scope.travel = 50;
+
+    // set default value for full suspension to true
+    $scope.fullSuspension = true;
+
+    // set investment value
+    $scope.investment = "50";
+
     // set default visited value
     $scope.visited = false;
 
@@ -81,6 +90,32 @@ angular.module('FormController', [])
       }
       else {
         $scope.techPrefs = "A good all-rounder";
+      }
+    });
+
+    // watches $scope.travel
+    $scope.$watch("travel", function() {
+      if ($scope.travel < 33) {
+        $scope.travelPrefs = "Less travel, good for cross country and weight oriented rigs.";
+      }
+      else if ($scope.travel < 66) {
+        $scope.travelPrefs = "A good trail bike, a lean enough geometry to allow for efficient climbing, usually with suspension that allows for wide ranges of compression damping, yet capable and ready to be pointed down the hill and tackle almost every challenge and ready for more.";
+      }
+      else {
+        $scope.travelPrefs = "A true descender, ranging from enduro racing to bike park whips, primed to be hucked into oblivion and handle a day spinning laps at the park, to full on World Cup downhill trail race beasts.";
+      }
+    });
+
+    // watches $scope.travel
+    $scope.$watch("investment", function() {
+      if ($scope.investment < 33) {
+        $scope.investmentPrefs = "Minimum investment. Looking for the best bang for your buck, and willing to upgrade when you are ready. Because if you plan to ride a lot, you will want to invest more.";
+      }
+      else if ($scope.investment < 66) {
+        $scope.investmentPrefs = "Medium investment. This is a good level of investment with little room for improvement off the bat.";
+      }
+      else {
+        $scope.investmentPrefs = "Maximum investment. You want the best gear, looking to get the lightest, strongest, and most durable gear money can buy. If you plan on riding a lot, this really is the best way to go.";
       }
     });
 
