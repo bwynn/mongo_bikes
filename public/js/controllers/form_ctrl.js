@@ -114,7 +114,7 @@ angular.module('FormController', [])
       $scope.prefs.stability = $scope.stability;
       $scope.prefs.technical = $scope.technical;
 
-      $scope.question = null; // set question value to null, hide all questions
+      //$scope.question = null; // set question value to null, hide all questions
 
       $scope.$emit('preferenceEmit', {prefs: $scope.prefs})
 
@@ -124,7 +124,7 @@ angular.module('FormController', [])
 
     // conditional to determine the users asc/desc preferences
     // watches the $scope.climb ng-model to update the values as the user changes their preference values
-    $scope.$watch("climb", function(newValue, oldValue) {
+    $scope.$watch("climb", function() {
       if ($scope.climb > 66) {
         $scope.strengths = "Climbing";
       }

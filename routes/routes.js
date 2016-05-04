@@ -1,9 +1,11 @@
+'use strict';
 // packages
 var path = require('path');
 var Bike = require('../models/bike');
 
 module.exports = function(app) {
   var bikeCtrl = require('../controllers/bike_controller');
+  var questionCtrl = require('../controllers/question_controller');
 
 // BIKE ROUTES
 // =============================================================================
@@ -21,6 +23,14 @@ module.exports = function(app) {
 
   // get individual bike
   app.get('/bikes/:id', bikeCtrl.getBike);
+
+// QUESTION ROUTES
+// =============================================================================
+  // get questions
+  app.get('/questions', questionCtrl.getQuestions);
+
+  // add question
+  app.post('/add_question', questionCtrl.addQuestion);
 
 // FRONT END ROUTES
 // =============================================================================

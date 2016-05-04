@@ -21,6 +21,9 @@ angular.module('AdminService', [])
       },
       getBike: function() {
         return $http.get('/bikes/:id');
+      },
+      getQuestions: function() {
+        return $http.get('/questions');
       }
     };
   }]);

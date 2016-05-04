@@ -1,6 +1,6 @@
 // public/js/app.js
 
-angular.module('bikeApp', ['ngRoute', 'ngAnimate', 'angular-filepicker', 'AppRoutes', 'AdminService', 'AdminController', 'AdminBikeController', 'FormController', 'MainController', 'ResultsController'])
+angular.module('bikeApp', ['ngRoute', 'ngAnimate', 'angular-filepicker', 'AppRoutes', 'AdminService', 'AdminController', 'AdminBikeController', 'FormController', 'MainController', 'ResultsController', 'QuestionAdminCtrl'])
   .config(function(filepickerProvider) {
     filepickerProvider.setKey('AjgLIPAdhTVu5fIVwhuahz');
   });

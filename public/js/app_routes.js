@@ -18,6 +18,10 @@ angular.module('AppRoutes', [])
         templateUrl: '/views/admin_bike.html',
         controller: 'adminBikeCtrl'
       }).
+      when('/admin-questions', {
+        templateUrl: '/views/question_admin.html',
+        controller: 'questionAdminCtrl'
+      }).
       when('/', {
         templateUrl: 'views/questionForm.html',
         controller: 'formCtrl'
