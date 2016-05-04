@@ -5,11 +5,11 @@ var Question = require('../models/questions');
 
 // get questions
 exports.getQuestions = function(req, res) {
-  Question.find(function(err, data) {
+  Question.find({}, function(err, data) {
     if (err) {
       res.send(err);
     }
-    console.log(data);
+    
     res.json(data);
   }, function(reject) {
     res.json({data: "Rejected due to " + reject});

@@ -3,14 +3,10 @@ angular.module('QuestionAdminCtrl', [])
 
     function init() {
       // get admin questions
-      $scope.adminQuestions = function() {
-        admin.getQuestions().then(function(data) {
-          console.log(data);
-          $scope.questions = data;
-        }, function(rejected) {
-          console.log("Reason for rejection: " + rejected);
-        });
-      };
+      admin.getQuestions().then(function(data) {
+        console.log(data);
+        $scope.questions = data;
+      });
     }
 
     init();
